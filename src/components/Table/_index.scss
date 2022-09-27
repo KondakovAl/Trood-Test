@@ -1,0 +1,116 @@
+.table {
+  margin: 0 auto;
+  border-spacing: 0 5px;
+  border-collapse: separate;
+  width: 1230px;
+}
+
+.head {
+  font-size: 15px;
+  color: $color-grey;
+  font-weight: normal;
+  &__row {
+    &-item {
+      &:first-child {
+        width: 235px;
+      }
+      padding: 10px 25px;
+      text-align: start;
+      position: relative;
+    }
+  }
+}
+
+.row-item {
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  &__text {
+    padding: 0px 2px;
+    cursor: pointer;
+    &_all {
+      padding: 0px 5px;
+      border-radius: 5px;
+      color: $color-light;
+      background-color: $color-dark-grey;
+      transition: background-color 0.5s ease;
+      cursor: pointer;
+      &.--active {
+        background-color: $color-pink;
+      }
+    }
+  }
+  &__icon {
+    &-container {
+      display: flex;
+      padding: 2px;
+      transition: transform 0.2s ease;
+      cursor: pointer;
+      & svg path {
+        transition: fill 0.4s ease;
+      }
+      &.--active {
+        transform: rotate(-180deg);
+        & svg path {
+          fill: $color-primary;
+        }
+      }
+    }
+    &-vector {
+      display: flex;
+      padding: 2px;
+      transition: transform 0.2s ease;
+      cursor: pointer;
+      & svg path {
+        transition: fill 0.4s ease;
+      }
+      &.--active {
+        transform: scale(1.4);
+        & svg path {
+          fill: $color-primary;
+        }
+      }
+    }
+  }
+  &__icons-container {
+    display: flex;
+    flex-direction: column;
+  }
+  &__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background: $color-dark-grey;
+  }
+}
+
+.main {
+  min-height: 40px;
+  &__row {
+    margin-bottom: 10px;
+    &-item {
+      &:first-child {
+        width: 235px;
+      }
+      padding: 20px 25px;
+      &:last-child {
+        padding: 0 20px;
+      }
+    }
+  }
+  &__error {
+    width: fit-content;
+    transform: translateX(0);
+    opacity: 0;
+    animation: fadeLeft 0.5s ease forwards;
+  }
+}
+
+@keyframes fadeLeft {
+  to {
+    transform: translateX(225%);
+    opacity: 1;
+  }
+}

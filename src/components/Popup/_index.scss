@@ -1,0 +1,71 @@
+.popup {
+  position: absolute;
+  top: 100%;
+  background: $color-light;
+  border: 1px solid $color-grey;
+  border-radius: 10px;
+  line-height: 15px;
+  transition: box-shadow 0.2s ease-in;
+  animation: fadeIn 0.3s ease-in;
+  z-index: 10;
+  &:focus-within {
+    box-shadow: 0px 0px 8px 1px rgba(34, 60, 80, 0.6);
+  }
+
+  &__input {
+    width: 130px;
+    padding: 10px 10px;
+    &::placeholder {
+      color: $color-grey;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+  }
+  &__label {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+    padding: 8px 20px;
+  }
+  &__radio-custom {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid $color-pink;
+    border-radius: 50%;
+    &::before {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      border-radius: 50%;
+      background: $color-pink;
+      transition: 0.2s ease-in;
+    }
+  }
+  &__radio-real {
+    display: none;
+  }
+  &__radio-real:checked + &__radio-custom::before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
